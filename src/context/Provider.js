@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router';
 const Provider = ({ children }) => {
   const [newUser, setNewUser] = useState({});
   const [isHidden, setIsHidden] = useState(true);
-  const [isFirstAccess, setIsFirstAccess] = useState(false);
   const navigate = useNavigate();
 
   // função para guardar novos dados no estado para o registro
@@ -15,25 +14,31 @@ const Provider = ({ children }) => {
     setNewUser({ ...newUser, [name]: value });
   };
 
+  // verifica se é o primeiro login e direciona para a pagina adequada
+  const isFirst = async (token) => {
+    const { firstAccess } = await firstAccessUser(token);
+    if (firstAccess) {
+      navigate('/personal-info');
+    } else {
+      navigate('/home');
+    }
+  };
+
   // faz o login e guarda o token no local storage 
   const login = async (user) => {
     const token = await loginUser(user);
-    console.log(token);
+
     if (!token) {
       setIsHidden(false);
     } else {
       localStorage.setItem('user', JSON.stringify({ token }));
     };
-    const isFirst = await firstAccessUser(token);
-    setIsFirstAccess(isFirst.firstAccess);
-    navigate('/home');
+   isFirst(token);
   };
   
   const states = {
     newUser,
     isHidden,
-    isFirstAccess,
-    setIsFirstAccess,
     handleChangeRegister,
     login,
     navigate
