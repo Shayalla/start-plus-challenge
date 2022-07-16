@@ -5,17 +5,28 @@ const API_URL = 'http://localhost:3001/account/';
 export const createUser = async (user) => {
   try {
     const userCreate = await axios.post(`${API_URL}register`, user);
-    return userCreate;
+    return userCreate.data;
   } catch (error) {
-    return null;
+    console.log(error);
   }
 };
 
 export const loginUser = async (user) => {
-    try {
-      const userCreate = await axios.post(`${API_URL}login`, user);
-      return userCreate;
-    } catch (error) {
-      return null;
-    }
-  };
+  try {
+    const userCreate = await axios.post(`${API_URL}login`, user);
+    return userCreate.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateUser = async (user, token) => {
+  try {
+    const update = await axios.put(`${API_URL}personal-information`,
+      user,
+      { headers: { authorization: token } });
+    return update.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

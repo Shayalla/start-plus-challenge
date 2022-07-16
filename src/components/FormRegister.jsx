@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import Context from '../context/Context';
 import { useNavigate } from 'react-router';
 import { createUser } from '../services/users';
 
 function FormRegister() {
-  const [newUser, setNewUser] = useState({});
+  const { newUser, handleChangeRegister, login } = useContext(Context);
   const navigate = useNavigate();
 
-  const handleChange = ({ name, value }) => {
-    setNewUser({ ...newUser, [name]: value });
-  };
-
+  console.log(newUser);
   const register = async () => {
     await createUser(newUser);
-    navigate('/');
+    await login(newUser);
+    console.log(newUser);
+    navigate('/personal-information');
   };
 
   return (
@@ -23,7 +23,7 @@ function FormRegister() {
           id="name"
           name="fullName"
           placeholder="Nome Completo"
-          onChange={ ({target}) => handleChange(target) }
+          onChange={ ({target}) => handleChangeRegister(target) }
         />
       </label>
       <label htmlFor="username">
@@ -32,7 +32,7 @@ function FormRegister() {
           id="username"
           name="username"
           placeholder="Usuário"
-          onChange={ ({target}) => handleChange(target) }
+          onChange={ ({target}) => handleChangeRegister(target) }
         />
       </label>
       <label htmlFor="email">
@@ -41,7 +41,7 @@ function FormRegister() {
           id="email"
           name="email"
           placeholder="E-mail"
-          onChange={ ({target}) => handleChange(target) }
+          onChange={ ({target}) => handleChangeRegister(target) }
         />
       </label>
       <label htmlFor="cellPhone">
@@ -50,7 +50,7 @@ function FormRegister() {
           id="cellPhone"
           name="cellPhone"
           placeholder="Telefone"
-          onChange={ ({target}) => handleChange(target) }
+          onChange={ ({target}) => handleChangeRegister(target) }
         />
       </label>
       <label htmlFor="password">
@@ -59,7 +59,7 @@ function FormRegister() {
           id="password"
           name="password"
           placeholder="Senha"
-          onChange={ ({target}) => handleChange(target) }
+          onChange={ ({target}) => handleChangeRegister(target) }
         />
       </label>
       <button type="button" onClick={ register }>Registar</button>

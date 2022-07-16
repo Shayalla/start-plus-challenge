@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import Login from './pages/Login';
+import PersonalInfo from './pages/PersonalInfo';
 import Register from './pages/Register';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={ <Login /> } />
       <Route path="/register" element={ <Register /> } />
+      <Route path="/personal-information" element={ <PersonalInfo /> } />
     </Routes>
   );
 }
