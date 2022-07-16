@@ -4,29 +4,28 @@ import Context from './Context';
 import { firstAccessUser, loginUser } from '../services/users';
 import { useNavigate } from 'react-router';
 
-function Provider({ children }) {
+const Provider = ({ children }) => {
   const [newUser, setNewUser] = useState({});
   const [isHidden, setIsHidden] = useState(true);
   const [isFirstAccess, setIsFirstAccess] = useState(false);
   const navigate = useNavigate();
 
-  const handleChangeRegister = ({ name, value }) => {
+  // função para guardar novos dados no estado para o registro
+  const handleChangeRegister = ({ target: { name, value } }) => {
     setNewUser({ ...newUser, [name]: value });
   };
 
+  // faz o login e guarda o token no local storage 
   const login = async (user) => {
-    const { token } = await loginUser(user);
-    const { firstAccess } = await firstAccessUser(token);
-    setIsFirstAccess(firstAccess);
+    const token = await loginUser(user);
+    console.log(token);
     if (!token) {
       setIsHidden(false);
     } else {
-      localStorage.setItem(
-        'user',
-        JSON.stringify({ token }),
-      );
-    //   console.log('tudo certo!!');
+      localStorage.setItem('user', JSON.stringify({ token }));
     };
+    const isFirst = await firstAccessUser(token);
+    setIsFirstAccess(isFirst.firstAccess);
     navigate('/home');
   };
   

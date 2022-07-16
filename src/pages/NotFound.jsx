@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NotFound() {
+const NotFound = () => {
   return (
     <div>
       <h1>PÁGINA NÃO ENCONTRADA</h1>

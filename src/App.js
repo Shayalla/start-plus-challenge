@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import NotFound from './pages/NotFound';
 
-function App() {
+const App = () => {
   return (
     <Routes>
       <Route path="/" element={ <Login /> } />

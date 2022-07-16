@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import Button from './Button';
 
-function Header() {
+const Header = () => {
   const navigate = useNavigate();
 
   const logout = () => {
@@ -12,7 +13,7 @@ function Header() {
   return (
     <div>
       <h1>Bem-vindo!!! =D</h1>
-      <button type="button" onClick={ logout }>Logout</button>
+      <Button onClick={ logout } text="Logout" />
     </div>
   )
 };

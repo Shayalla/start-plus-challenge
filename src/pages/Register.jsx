@@ -1,7 +1,7 @@
 import React from 'react';
 import FormRegister from '../components/FormRegister';
 
-function Register() {
+const Register = () => {
   return (
     <FormRegister />
   )

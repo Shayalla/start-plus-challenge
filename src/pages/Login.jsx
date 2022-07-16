@@ -1,7 +1,7 @@
 import React from 'react';
 import FormLogin from '../components/FormLogin';
 
-function Login() {
+const Login = () => {
   return (
     <FormLogin />
   )

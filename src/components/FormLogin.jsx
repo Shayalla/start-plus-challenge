@@ -1,37 +1,33 @@
 import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
+import Button from './Button';
+import Input from './Input';
 
-function FormLogin() {
+const FormLogin = () => {
   const { isHidden, login, navigate } = useContext(Context);
   const [user, setUser] = useState({});
 
-  const handleChange = ({ name, value }) => {
+  const handleChange = ({ target: { name, value } }) => {
     setUser({ ...user, [name]: value });
   };
 
   return (
     <form>
-      <label htmlFor="login">
-        <input
-          type="text"
-          id="login"
-          placeholder="e-mail"
-          name="email"
-          onChange={ ({target}) => handleChange(target) }
-        />
-      </label>
-      <label htmlFor="password">
-        <input
-          type="password"
-          id="password"
-          placeholder="senha"
-          name="password"
-          onChange={ ({target}) => handleChange(target) }
-        />
-      </label>
-      <button type="button" onClick={ () => login(user) }>Entrar</button>
-      <button type="button" onClick={ () => navigate('/register') }>Registrar-se</button>
-      <div hidden={isHidden}>Email e/ou senha inválidos</div>
+      <Input
+        type="email"
+        name="email"
+        placeholder="email"
+        onChange={ handleChange }
+      />
+      <Input
+        type="password"
+        name="password"
+        placeholder="senha"
+        onChange={ handleChange }
+      />
+      <Button onClick={ () => login(user) } text="Entrar" />
+      <Button onClick={ () => navigate('/register') } text="Cadastrar" />
+      <p hidden={isHidden}>Email e/ou senha inválidos</p>
     </form>
   )
 };
