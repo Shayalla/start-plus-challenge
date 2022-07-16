@@ -13,8 +13,8 @@ export const createUser = async (user) => {
 
 export const loginUser = async (user) => {
   try {
-    const userCreate = await axios.post(`${API_URL}login`, user);
-    return userCreate.data;
+    const login = await axios.post(`${API_URL}login`, user);
+    return login.data;
   } catch (error) {
     console.log(error);
   }
@@ -26,6 +26,16 @@ export const updateUser = async (user, token) => {
       user,
       { headers: { authorization: token } });
     return update.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const firstAccessUser = async (token) => {
+  try {
+    const firstAccess = await axios.get(`${API_URL}check-first-access`,
+      { headers: { 'Authorization': token } });
+    return firstAccess.data;
   } catch (error) {
     console.log(error);
   }

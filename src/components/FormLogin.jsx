@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router';
 import Context from '../context/Context';
 
 function FormLogin() {
-  const { isHidden, login } = useContext(Context);
+  const { isHidden, login, navigate } = useContext(Context);
   const [user, setUser] = useState({});
-  const navigate = useNavigate();
 
   const handleChange = ({ name, value }) => {
     setUser({ ...user, [name]: value });

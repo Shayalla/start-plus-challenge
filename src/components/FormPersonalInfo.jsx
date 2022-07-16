@@ -3,12 +3,13 @@ import Context from '../context/Context';
 import { updateUser } from '../services/users';
 
 function FormPersonalInfo() {
-  const { newUser, handleChangeRegister } = useContext(Context);
+  const { newUser, handleChangeRegister, setIsFirstAccess, navigate } = useContext(Context);
 
   const completeRegister = async () => {
     const { token } = JSON.parse(localStorage.getItem('user'));
-    console.log(token);
     await updateUser(newUser, token);
+    setIsFirstAccess(false);
+    navigate('/home');
     console.log('registrado');
   };
 
@@ -25,13 +26,13 @@ function FormPersonalInfo() {
         <input type="text" id="nationality" name="nationality" placeholder="Nacionalidade" onChange={ ({ target }) => handleChangeRegister(target) } />
       </label>
       <select name="gender" id="gender" onChange={ ({ target }) => handleChangeRegister(target) }>
-        <option value="" disabled>Gênero</option>
+        <option value="" disabled selected>Gênero</option>
         <option value="masculino">Masculino</option>
         <option value="feminino">Feminino</option>
         <option value="lgbtqia+">LGBTQIA+</option>
       </select>
       <select name="maritalStatus" id="maritalStatus" onChange={ ({ target }) => handleChangeRegister(target) }>
-        <option value="" disabled>Estado Civil</option>
+        <option value="" disabled selected>Estado Civil</option>
         <option value="solteiro">Solteiro</option>
         <option value="casado">Casado</option>
         <option value="divorciado">Divorciado</option>
@@ -39,7 +40,7 @@ function FormPersonalInfo() {
         <option value="união estável">União Estável</option>
       </select>
       <select name="skinColor" id="skinColor" onChange={ ({ target }) => handleChangeRegister(target) }>
-        <option value="" disabled>Cor da pele</option>
+        <option value="" disabled selected>Cor da pele</option>
         <option value="branca">Branco</option>
         <option value="parda">Parda</option>
         <option value="preta">Preta</option>
@@ -47,7 +48,7 @@ function FormPersonalInfo() {
         <option value="amarela">Amarela</option>
       </select>
       <select name="schooling" id="schooling" onChange={ ({ target }) => handleChangeRegister(target) }>
-        <option value="" disabled>Escolaridade</option>
+        <option value="" disabled selected>Escolaridade</option>
         <option value="Fundamental - Incompleto">Fundamental - Incompleto</option>
         <option value="Fundamental - Completo">Fundamental - Completo</option>
         <option value="Médio - Incompleto">Médio - Incompleto</option>

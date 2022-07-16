@@ -1,18 +1,14 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
-import { useNavigate } from 'react-router';
 import { createUser } from '../services/users';
 
 function FormRegister() {
-  const { newUser, handleChangeRegister, login } = useContext(Context);
-  const navigate = useNavigate();
+  const { newUser, handleChangeRegister, login, navigate } = useContext(Context);
 
-  console.log(newUser);
   const register = async () => {
     await createUser(newUser);
     await login(newUser);
-    console.log(newUser);
-    navigate('/personal-information');
+    navigate('/');
   };
 
   return (
@@ -63,7 +59,7 @@ function FormRegister() {
         />
       </label>
       <button type="button" onClick={ register }>Registar</button>
-      <button type="button" onClick={ () => navigate('/') }>Cancelar</button>
+      <button type="button" onClick={ navigate.goBack }>Cancelar</button>
     </form>
   )
 };
