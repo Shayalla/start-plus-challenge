@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import Context from '../context/Context';
-import { updateUser } from '../services/users';
-import comboBoxs from '../utils/comboBoxs';
-import Button from './Button';
-import Input from './Input';
-import Select from './Select';
+import Context from '../../context/Context';
+import { updateUser } from '../../services/users';
+import comboBoxs from '../../utils/comboBoxs';
+import Button from '../Button';
+import Input from '../Input';
+import Select from '../Select';
 
 const FormPersonalInfo = () => {
   const { newUser, handleChangeRegister, setIsFirstAccess, navigate } = useContext(Context);

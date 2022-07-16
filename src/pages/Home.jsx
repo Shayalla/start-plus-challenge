@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import FormPersonalInfo from '../components/FormPersonalInfo';
 import Context from '../context/Context';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 const Home = () => {
-  const { isFirstAccess, navigate } = useContext(Context);
+  const { navigate } = useContext(Context);
   
   useEffect(() => {
     // checa se está logado, se não vai para a tela de login
@@ -13,12 +12,8 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <div>
-      { isFirstAccess
-          ? <FormPersonalInfo />
-          : <Header />
-      }
-    </div>)
+    <Header />
+  )
 };
 
 export default Home;

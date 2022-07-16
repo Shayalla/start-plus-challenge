@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import Button from './Button';
+import Button from '../Button';
 
 const Header = () => {
   const navigate = useNavigate();

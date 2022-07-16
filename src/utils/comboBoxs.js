@@ -27,7 +27,7 @@ const comboBoxs = {
       'Superior - Completo',
       'Pós-graduação - Incompleto',
       'Pós-graduação - Completo'
-    ] 
+    ],
 };
 
 export default comboBoxs;

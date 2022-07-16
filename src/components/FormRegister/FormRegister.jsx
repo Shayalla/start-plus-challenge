@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import Context from '../context/Context';
-import { createUser } from '../services/users';
-import Button from './Button';
-import Input from './Input';
+import Context from '../../context/Context';
+import { createUser } from '../../services/users';
+import Button from '../Button';
+import Input from '../Input';
 
 const FormRegister = () => {
   const { newUser, handleChangeRegister, login, navigate } = useContext(Context);

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import Context from '../context/Context';
-import Button from './Button';
-import Input from './Input';
+import Context from '../../context/Context';
+import Button from '../Button';
+import Input from '../Input';
 
 const FormLogin = () => {
   const { isHidden, login, navigate } = useContext(Context);
