@@ -4,7 +4,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
-import Input from '../InputPassword';
+import Input from '../Input';
 import './FormLogin.css';
 import InputPassword from '../InputPassword';
 
@@ -26,6 +26,7 @@ const FormLogin = () => {
         </Typography>
         <CardContent>
           <Input
+            type="text"
             name="email"
             placeholder="Email"
             onChange={handleChange}
