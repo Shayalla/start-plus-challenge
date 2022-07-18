@@ -15,7 +15,7 @@ const DashBoard = () => {
   
   return (
     <div className="div-dash">
-      <Box sx={{ flexGrow: 1, width: '100vw' }}>
+      <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" color="success">
           <Toolbar>
             <IconButton
