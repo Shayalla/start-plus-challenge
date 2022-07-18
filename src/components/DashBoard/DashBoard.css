@@ -1,0 +1,17 @@
+.bem-vindos {
+  align-items: center;
+  border-radius: 15px;
+  color: rgb(210, 223, 20);
+  display: flex;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 50px;
+  justify-content: center;
+  margin: 10%;
+  text-shadow: 0.1em 0.1em 0.2em black
+}
+
+.div-dash {
+  background: url('https://tecnoblog.net/wp-content/uploads/2021/02/bitcoin-4481815_1920-e1614361289205.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
