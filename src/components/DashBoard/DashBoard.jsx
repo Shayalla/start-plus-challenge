@@ -42,7 +42,7 @@ const DashBoard = () => {
         </AppBar>
       </Box>
       <h1 className="bem-vindos">
-        $ Bem-vindo!!! =D $
+        $ Bem-vindo!!! $
       </h1>
     </div>
   )

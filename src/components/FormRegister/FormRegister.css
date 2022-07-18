@@ -17,3 +17,12 @@
   position: fixed;
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .card-register {
+    width: 300px;
+  }
+  .form-register {
+      margin: 0;
+  }
+}

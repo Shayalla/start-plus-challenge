@@ -6,3 +6,10 @@ body {
   top: 0;
   left: 0;
 }
+
+@media (max-width: 600px) {
+  body {
+    background:white;
+  }
+}
+  
