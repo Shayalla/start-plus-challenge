@@ -27,7 +27,7 @@ const FormPersonalInfo = () => {
         >
           Complete o seu cadastro:
         </Typography>
-        <CardContent>
+        <CardContent className="content-info">
           <Input
             type="number"
             name="rg"

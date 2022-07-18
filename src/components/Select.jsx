@@ -4,10 +4,9 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 const SelectForm = ({ name, onChange, first, data }) => {
   return ( 
-    <FormControl variant="standard" fullWidth>
+    <FormControl variant="standard" margin="dense" fullWidth>
       <InputLabel>{first}</InputLabel>
       <Select
-        margin="dense"
         name={ name }
         onChange={ onChange }
       >

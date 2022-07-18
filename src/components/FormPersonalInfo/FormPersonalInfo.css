@@ -1,7 +1,10 @@
 .card-info {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgb(255, 255, 255);
   margin-top: 50px;
+  margin-left: 225px;
   padding: 20px;
+  position: fixed;
+  width: 400px;
 }
 
 .card-info .title {

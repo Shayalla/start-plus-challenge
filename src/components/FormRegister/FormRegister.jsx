@@ -15,7 +15,7 @@ const FormRegister = () => {
   };
 
   return (
-    <form>
+    <form className="form-register">
       <Container maxWidth="sm">
       <CssBaseline />
         <Card className="card-register">
