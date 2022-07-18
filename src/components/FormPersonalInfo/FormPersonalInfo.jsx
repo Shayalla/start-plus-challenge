@@ -1,67 +1,88 @@
+import { Card, CardActions, CardContent, Container, Button, Typography, CssBaseline } from '@mui/material';
+import TaskIcon from '@mui/icons-material/Task';
 import React, { useContext } from 'react';
 import Context from '../../context/Context';
 import { updateUser } from '../../services/users';
 import comboBoxs from '../../utils/comboBoxs';
-import Button from '../Button';
 import Input from '../Input';
-import Select from '../Select';
+import SelectForm from '../Select';
+import './FormPersonalInfo.css';
 
 const FormPersonalInfo = () => {
-  const { newUser, handleChangeRegister, setIsFirstAccess, navigate } = useContext(Context);
+  const { newUser, handleChangeRegister, navigate } = useContext(Context);
 
   const completeRegister = async () => {
     const { token } = JSON.parse(localStorage.getItem('user'));
     await updateUser(newUser, token);
-    setIsFirstAccess(false);
     navigate('/home');
   };
 
   return (
-    <div>
-      <Input
-        type="number"
-        name="rg"
-        placeholder="RG"
-        onChange={ handleChangeRegister }
-      />
-      <Input
-        type="number"
-        name="cpf"
-        placeholder="CPF"
-        onChange={ handleChangeRegister }
-      />
-      <Input
-        type="text"
-        name="nationality"
-        placeholder="Nacionalidade"
-        onChange={ handleChangeRegister }
-      />
-      <Select
-        name="gender"
-        first="Gênero"
-        data={ comboBoxs.genero }
-        onChange={ handleChangeRegister }
-      />
-      <Select
-        name="maritalStatus"
-        first="Estado Civil"
-        data={ comboBoxs.estadoCivil }
-        onChange={ handleChangeRegister }
-      />
-      <Select
-        name="skinColor"
-        first="Cor da pele"
-        data={ comboBoxs.corDaPele }
-        onChange={ handleChangeRegister }
-      />
-      <Select
-        name="schooling"
-        first="Escolaridade"
-        data={ comboBoxs.escolaridade }
-        onChange={ handleChangeRegister }
-      />
-      <Button onClick={ completeRegister } text="Completar Cadastro" />
-    </div>
+    <Container maxWidth="md">
+      <CssBaseline />
+      <Card className="card-info">
+        <Typography 
+          variant="h5"
+          className="title"
+        >
+          Complete o seu cadastro:
+        </Typography>
+        <CardContent>
+          <Input
+            type="number"
+            name="rg"
+            placeholder="RG"
+            onChange={ handleChangeRegister }
+          />
+          <Input
+            type="number"
+            name="cpf"
+            placeholder="CPF"
+            onChange={ handleChangeRegister }
+          />
+          <Input
+            type="text"
+            name="nationality"
+            placeholder="Nacionalidade"
+            onChange={ handleChangeRegister }
+          />
+          <SelectForm
+            name="gender"
+            first="Gênero"
+            data={ comboBoxs.genero }
+            onChange={ handleChangeRegister }
+          />
+          <SelectForm
+            name="maritalStatus"
+            first="Estado Civil"
+            data={ comboBoxs.estadoCivil }
+            onChange={ handleChangeRegister }
+          />
+          <SelectForm
+            name="skinColor"
+            first="Cor da pele"
+            data={ comboBoxs.corDaPele }
+            onChange={ handleChangeRegister }
+          />
+          <SelectForm
+            name="schooling"
+            first="Escolaridade"
+            data={ comboBoxs.escolaridade }
+            onChange={ handleChangeRegister }
+          />
+        </CardContent>
+        <CardActions>
+          <Button
+            variant="contained"
+            endIcon={ <TaskIcon /> }
+            onClick={ completeRegister }
+            color="success"
+          >
+            Completar Cadastro
+          </Button>
+        </CardActions>
+      </Card>
+    </Container>
   )
 };
 

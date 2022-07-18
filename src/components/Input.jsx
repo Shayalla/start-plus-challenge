@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TextField } from '@mui/material';
 
-const Input = ({ name, onChange, placeholder, type }) => {
+const Input = ({ name, onChange, placeholder, type='text' }) => {
   return (
-    <label htmlFor={ name }>
-      <input
-        type={ type }
-        id={ name }
-        name={ name }
-        onChange={ onChange }
-        placeholder={ placeholder }
-        />
-    </label>
+    <TextField
+      variant="standard"
+      margin="dense"
+      required
+      fullWidth
+      type={ type }
+      label={ placeholder }
+      name={ name }
+      autoComplete="email"
+      autoFocus
+      onChange={ onChange }
+    />
   )
 };
 
@@ -19,7 +23,7 @@ Input.propTypes = ({
   name: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.string
 }).isRequired;
 
 export default Input;
