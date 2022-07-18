@@ -11,7 +11,7 @@
 }
 
 .div-dash {
-  background: url('https://tecnoblog.net/wp-content/uploads/2021/02/bitcoin-4481815_1920-e1614361289205.jpg') no-repeat center center fixed;
+  background: url("../../assets/images/bitcoin.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
 }
