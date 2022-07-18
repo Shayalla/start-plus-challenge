@@ -4,8 +4,9 @@ import LoginIcon from '@mui/icons-material/Login';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import React, { useContext, useState } from 'react';
 import Context from '../../context/Context';
-import Input from '../Input';
+import Input from '../InputPassword';
 import './FormLogin.css';
+import InputPassword from '../InputPassword';
 
 const FormLogin = () => {
   const { isHidden, login, navigate } = useContext(Context);
@@ -29,7 +30,7 @@ const FormLogin = () => {
             placeholder="Email"
             onChange={handleChange}
           />
-          <Input
+          <InputPassword
             type="password"
             name="password"
             placeholder="Senha"

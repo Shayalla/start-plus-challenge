@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import Context from '../../context/Context';
 import { updateUser } from '../../services/users';
 import comboBoxs from '../../utils/comboBoxs';
-import Input from '../Input';
+import Input from '../InputPassword';
 import SelectForm from '../Select';
 import './FormPersonalInfo.css';
 
@@ -41,7 +41,6 @@ const FormPersonalInfo = () => {
             onChange={ handleChangeRegister }
           />
           <Input
-            type="text"
             name="nationality"
             placeholder="Nacionalidade"
             onChange={ handleChangeRegister }
