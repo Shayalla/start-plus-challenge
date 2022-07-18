@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Context from '../context/Context';
-import Header from '../components/Header/Header';
+import DashBoard from '../components/DashBoard/DashBoard';
 
 const Home = () => {
   const { navigate } = useContext(Context);
@@ -12,7 +12,7 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <Header />
+    <DashBoard />
   )
 };
 
